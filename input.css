@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-primary{
+    @apply bg-gradient-to-r from-teal-600 to-teal-800 py-1 px-3 rounded-lg text-white;
+}

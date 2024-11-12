@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-100 text-slate-700 px-20">
+
+    <div class="min-h-96 max-w-5xl mx-auto my-12">
+        <aside class="mb-5">
+            <input type="text" id="food-input"
+                class="h-10 px-2 border border-slate-900 shadow-sm w-full max-w-sm rounded-md">
+            <button class="btn-primary" id="add-btn">
+                Add
+            </button>
+        </aside>
+
+        <aside class="max-h-96 overflow-auto w-fit min-w-[384px] bg-white shadow-md rounded-lg">
+            <ul id="food-list-ul" class="w-full max-w-sm rounded-lg overflow-hidden">
+                <!-- Populated by JS -->
+            </ul>
+        </aside>
+    </div>
+
+
+    <script>
+        
+        let addBtn = document.getElementById('add-btn');
+        let newList =[]
+
+        // addBtn.addEventListener('click', () =>{
+        //     let foodInput = document.getElementById('food-input');
+        //     // console.log(foodInput);
+            
+        //     // console.log(foodInput);
+        //     let foodUlList = document.getElementById('food-list-ul');
+        //     // foodUlList .innerText +=foodInput;
+        //     let listItem = `<li class="py-2 px-4 even:bg-slate-100">${foodInput.value}</li>`
+        //     foodUlList.innerHTML +=listItem;
+        //     foodInput.value = '';
+            
+        // })
+        let displayFoodItems = () =>{
+
+            let foodUlList = document.getElementById('food-list-ul');
+            foodUlList.innerHTML='';
+            for (let i = 0; i < newList.length; i++) {
+                let listItem = `<li class="py-2 px-4 even:bg-slate-100">${newList[i]}</li>`
+                foodUlList.innerHTML +=listItem;
+                
+            }
+        }
+
+
+        addBtn.addEventListener('click', () =>{
+            let foodInput = document.getElementById('food-input');
+           newList.push(foodInput.value);
+           foodInput.value='';
+           console.log(newList);
+
+           displayFoodItems();
+           
+            
+           
+            
+        })
+
+    </script>
+    
+</body>
+</html>
